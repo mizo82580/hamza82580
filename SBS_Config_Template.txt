@@ -1,0 +1,247 @@
+//+------------------------------------------------------------------+
+//|                                    SBS_Config_Template.txt       |
+//|                                 Copyright 2024, hamza82580       |
+//|                                             https://github.com/mizo82580/hamza82580 |
+//+------------------------------------------------------------------+
+
+/*
+قالب إعدادات مؤشر SBS MODEL
+SBS MODEL Indicator Configuration Template
+
+هذا الملف يحتوي على إعدادات موصى بها لمختلف أنواع التداول والأزواج والإطارات الزمنية
+This file contains recommended settings for different trading types, pairs, and timeframes
+*/
+
+//=================================================================
+// إعدادات التداول السريع (سكالبينج) / Scalping Settings
+//=================================================================
+[SCALPING_SETTINGS]
+SBS_Period = 8
+BreakoutThreshold = 0.00005
+MinCandlesForSignal = 2
+TakeProfitMultiplier = 1.5
+StopLossMultiplier = 0.8
+FibPeriod = 20
+Timeframes = M1, M5, M15
+
+//=================================================================
+// إعدادات التداول اليومي / Day Trading Settings  
+//=================================================================
+[DAY_TRADING_SETTINGS]
+SBS_Period = 14
+BreakoutThreshold = 0.0001
+MinCandlesForSignal = 3
+TakeProfitMultiplier = 2.0
+StopLossMultiplier = 1.0
+FibPeriod = 50
+Timeframes = M15, M30, H1
+
+//=================================================================
+// إعدادات التداول المتوسط المدى / Swing Trading Settings
+//=================================================================
+[SWING_TRADING_SETTINGS]
+SBS_Period = 21
+BreakoutThreshold = 0.0002
+MinCandlesForSignal = 4
+TakeProfitMultiplier = 3.0
+StopLossMultiplier = 1.5
+FibPeriod = 100
+Timeframes = H1, H4, D1
+
+//=================================================================
+// إعدادات التداول طويل المدى / Position Trading Settings
+//=================================================================
+[POSITION_TRADING_SETTINGS]
+SBS_Period = 50
+BreakoutThreshold = 0.0005
+MinCandlesForSignal = 5
+TakeProfitMultiplier = 4.0
+StopLossMultiplier = 2.0
+FibPeriod = 200
+Timeframes = H4, D1, W1
+
+//=================================================================
+// إعدادات خاصة بالأزواج / Pair-Specific Settings
+//=================================================================
+
+[EUR_USD_SETTINGS]
+// الزوج الأكثر سيولة / Most liquid pair
+SBS_Period = 14
+BreakoutThreshold = 0.00008
+MinCandlesForSignal = 3
+Comments = "مناسب لجميع أنواع التداول / Suitable for all trading types"
+
+[GBP_USD_SETTINGS]
+// زوج متقلب / Volatile pair
+SBS_Period = 16
+BreakoutThreshold = 0.00012
+MinCandlesForSignal = 4
+Comments = "يتطلب حذر أكثر بسبب التقلبات / Requires more caution due to volatility"
+
+[USD_JPY_SETTINGS]
+// زوج مستقر نسبياً / Relatively stable pair
+SBS_Period = 12
+BreakoutThreshold = 0.008
+MinCandlesForSignal = 3
+Comments = "إعدادات بالنقاط للين الياباني / Settings in pips for JPY"
+
+[GBP_JPY_SETTINGS]
+// زوج شديد التقلب / Highly volatile pair
+SBS_Period = 20
+BreakoutThreshold = 0.015
+MinCandlesForSignal = 5
+Comments = "أكثر الأزواج تقلباً / Most volatile pair"
+
+[AUD_USD_SETTINGS]
+// زوج حساس للسلع / Commodity-sensitive pair
+SBS_Period = 18
+BreakoutThreshold = 0.0001
+MinCandlesForSignal = 3
+Comments = "متأثر بأسعار السلع / Affected by commodity prices"
+
+//=================================================================
+// إعدادات إدارة المخاطر / Risk Management Settings
+//=================================================================
+
+[CONSERVATIVE_RISK]
+MaxRiskPercent = 1.0
+TakeProfitMultiplier = 1.5
+StopLossMultiplier = 0.8
+MaxOrders = 1
+Comments = "للمتداولين المحافظين / For conservative traders"
+
+[MODERATE_RISK]
+MaxRiskPercent = 2.0
+TakeProfitMultiplier = 2.0
+StopLossMultiplier = 1.0
+MaxOrders = 2
+Comments = "للمتداولين المعتدلين / For moderate traders"
+
+[AGGRESSIVE_RISK]
+MaxRiskPercent = 3.0
+TakeProfitMultiplier = 3.0
+StopLossMultiplier = 1.5
+MaxOrders = 3
+Comments = "للمتداولين المتقدمين / For aggressive traders"
+
+//=================================================================
+// إعدادات الفيبوناتشي المتقدمة / Advanced Fibonacci Settings
+//=================================================================
+
+[FIBONACCI_CONSERVATIVE]
+FibPeriod = 100
+ShowFibonacci = true
+FibColor = clrYellow
+Comments = "مستويات فيبوناتشي محافظة / Conservative Fibonacci levels"
+
+[FIBONACCI_AGGRESSIVE]
+FibPeriod = 50
+ShowFibonacci = true
+FibColor = clrOrange
+Comments = "مستويات فيبوناتشي سريعة الاستجابة / Fast-responding Fibonacci levels"
+
+//=================================================================
+// إعدادات التنبيهات / Alert Settings
+//=================================================================
+
+[ALERTS_FULL]
+EnableAlerts = true
+SendNotifications = true
+PlaySounds = true
+Comments = "جميع أنواع التنبيهات مفعلة / All alert types enabled"
+
+[ALERTS_SILENT]
+EnableAlerts = false
+SendNotifications = true
+PlaySounds = false
+Comments = "إشعارات صامتة فقط / Silent notifications only"
+
+[ALERTS_SOUND_ONLY]
+EnableAlerts = true
+SendNotifications = false
+PlaySounds = true
+Comments = "تنبيهات صوتية فقط / Sound alerts only"
+
+//=================================================================
+// إعدادات الجلسات التداولية / Trading Session Settings
+//=================================================================
+
+[LONDON_SESSION]
+UseTimeFilter = true
+StartHour = 8
+EndHour = 16
+Comments = "جلسة لندن (GMT) / London Session (GMT)"
+
+[NEW_YORK_SESSION]
+UseTimeFilter = true
+StartHour = 13
+EndHour = 21
+Comments = "جلسة نيويورك (GMT) / New York Session (GMT)"
+
+[ASIAN_SESSION]
+UseTimeFilter = true
+StartHour = 0
+EndHour = 8
+Comments = "الجلسة الآسيوية (GMT) / Asian Session (GMT)"
+
+[OVERLAP_LONDON_NY]
+UseTimeFilter = true
+StartHour = 13
+EndHour = 16
+Comments = "تداخل لندن ونيويورك / London-NY Overlap"
+
+//=================================================================
+// نصائح الاستخدام / Usage Tips
+//=================================================================
+
+/*
+نصائح مهمة للاستخدام / Important Usage Tips:
+
+1. اختبر الإعدادات على حساب تجريبي أولاً
+   Test settings on demo account first
+
+2. ابدأ بالإعدادات المحافظة ثم اضبط تدريجياً
+   Start with conservative settings then adjust gradually
+
+3. راقب الأداء لمدة أسبوع على الأقل قبل التغيير
+   Monitor performance for at least a week before changing
+
+4. استخدم إعدادات مختلفة لأزواج مختلفة
+   Use different settings for different pairs
+
+5. اضبط الإعدادات حسب ظروف السوق الحالية
+   Adjust settings based on current market conditions
+
+6. لا تغير الإعدادات بناءً على صفقة واحدة
+   Don't change settings based on one trade
+
+7. احتفظ بسجل للإعدادات المختبرة والنتائج
+   Keep a log of tested settings and results
+*/
+
+//=================================================================
+// مثال للاستخدام العملي / Practical Usage Example
+//=================================================================
+
+/*
+مثال لتداول EUR/USD على الإطار الزمني H1
+Example for EUR/USD trading on H1 timeframe:
+
+1. استخدم إعدادات DAY_TRADING_SETTINGS
+   Use DAY_TRADING_SETTINGS
+
+2. اضبط BreakoutThreshold إلى 0.00008 حسب EUR_USD_SETTINGS
+   Adjust BreakoutThreshold to 0.00008 per EUR_USD_SETTINGS
+
+3. فعل فلتر الوقت لجلسة لندن أو تداخل لندن-نيويورك
+   Enable time filter for London session or London-NY overlap
+
+4. ابدأ بإدارة مخاطر محافظة
+   Start with conservative risk management
+
+5. راقب الأداء لأسبوع كامل
+   Monitor performance for a full week
+
+6. اضبط الإعدادات حسب النتائج
+   Adjust settings based on results
+*/
